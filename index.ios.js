@@ -17,9 +17,14 @@ import Svg, {
     Polygon
 } from 'react-native-svg'
 
+import {
+    STROKE_WIDTH,
+    STROKE_COLOR,
+    DEFAULT_COLOR,
+    DISABLED_COLOR,
+    CHOSEN_COLOR
+} from './app/constants'
 
-const STROKE_COLOR = 'cyan'
-const STROKE_WIDTH = .1
 
 const POLY_1 = ({stroke = STROKE_COLOR, fill = 'none', strokeWidth = STROKE_WIDTH, points = '0.0'}) => (
     <Polygon
@@ -30,36 +35,55 @@ const POLY_1 = ({stroke = STROKE_COLOR, fill = 'none', strokeWidth = STROKE_WIDT
     />
 )
 
-const DEFAULT_FILL = 'black'
-const CHOSEN_FILL = 'gold'
-const DISABLED_FILL = DISABLED_FILL
+const setActivePolys = (num = 0) => {
+
+    let result = {}
+    const till = 9
+
+    for (let i = 0; i <= till; i++) {
+        result[`fill00${i}`] = i <= num ? CHOSEN_COLOR : DEFAULT_COLOR
+    }
+
+    return result
+}
+
+const Axis = ({startPoint=['0,0', '0,0'], endPoint=['0,0', '0,0']}) => (<Line
+    x1={startPoint[0]}
+    y1={startPoint[1]}
+    x2={endPoint[0]}
+    y2={endPoint[1]}
+    stroke={STROKE_COLOR}
+    strokeWidth={STROKE_WIDTH}
+/>)
 
 export default class xyz extends Component {
     constructor() {
         super()
-        this.state = {
-            hover: true,
-            fill001: DEFAULT_FILL,
-            fill002: DEFAULT_FILL,
-            fill003: DEFAULT_FILL,
-            fill004: DEFAULT_FILL,
-            fill005: DEFAULT_FILL,
-            fill006: DEFAULT_FILL,
-            fill007: DEFAULT_FILL,
-            fill008: DEFAULT_FILL,
-            fill009: DEFAULT_FILL,
-            fill000: DEFAULT_FILL
-        }
+        this.state = Object.assign({hover: true}, setActivePolys())
     }
 
     toggle = () => {
         this.setState({hover: !this.state.hover});
     }
 
+
+    renderAxis() {
+
+        const axisArray = [
+            [
+                ['145','112.254'],
+                ['145','251.14736709749']
+            ]
+        ]
+
+        return axisArray.map((coords) => <Axis startPoint={coords[0]} endPoint={coords[1]}/>)
+    }
+
     render() {
 
         const SVG_HEIGHT = 251.14736709749
         const SVG_WIDTH = 290
+
 
         return (
             <View style={styles.container}>
@@ -91,17 +115,11 @@ export default class xyz extends Component {
                         <POLY_1 points='80.45,46.691 145,157.629 208.332,46.691'/>
                         {/* 999 */}
                         <POLY_1 points='120.037,69.052 169.485,69.052 145,112.254'/>
-                        
+
 
                         {/* Polus1 */}
-                        <Line
-                            x1='145'
-                            y1='112.254'
-                            x2='145'
-                            y2='251.14736709749'
-                            stroke={STROKE_COLOR}
-                            strokeWidth='0.1'
-                        />
+                        {this.renderAxis()}
+
                         {/* Polus2 */}
                         <Line
                             x1='96,269'
@@ -109,7 +127,7 @@ export default class xyz extends Component {
                             x2='136,491'
                             y2='97,66'
                             stroke={STROKE_COLOR}
-                            strokeWidth='0.1'
+                            strokeWidth={STROKE_WIDTH}
                         />
                         {/* Polus3 */}
                         <Line
@@ -118,7 +136,7 @@ export default class xyz extends Component {
                             x2='128,077'
                             y2='83,145'
                             stroke={STROKE_COLOR}
-                            strokeWidth='0.1'
+                            strokeWidth={STROKE_WIDTH}
                         />
                         {/* Polus4 */}
                         <Line
@@ -127,7 +145,7 @@ export default class xyz extends Component {
                             x2='120.037'
                             y2='69.052'
                             stroke={STROKE_COLOR}
-                            strokeWidth='0.1'
+                            strokeWidth={STROKE_WIDTH}
                         />
                         {/* Polus5 */}
                         <Line
@@ -136,7 +154,7 @@ export default class xyz extends Component {
                             x2='136,425'
                             y2='69,048'
                             stroke={STROKE_COLOR}
-                            strokeWidth='0.1'
+                            strokeWidth={STROKE_WIDTH}
                         />
                         {/* Polus6 */}
                         <Line
@@ -145,7 +163,7 @@ export default class xyz extends Component {
                             x2='153,103'
                             y2='69,048'
                             stroke={STROKE_COLOR}
-                            strokeWidth='0.1'
+                            strokeWidth={STROKE_WIDTH}
                         />
                         {/* Polus7 */}
                         <Line
@@ -154,7 +172,7 @@ export default class xyz extends Component {
                             x2='169.485'
                             y2='69.052'
                             stroke={STROKE_COLOR}
-                            strokeWidth='0.1'
+                            strokeWidth={STROKE_WIDTH}
                         />
                         {/* Polus8 */}
                         <Line
@@ -163,7 +181,7 @@ export default class xyz extends Component {
                             x2='161,464'
                             y2='83,145'
                             stroke={STROKE_COLOR}
-                            strokeWidth='0.1'
+                            strokeWidth={STROKE_WIDTH}
                         />
                         {/* Polus9 */}
                         <Line
@@ -172,106 +190,62 @@ export default class xyz extends Component {
                             x2='193,9'
                             y2='167,184'
                             stroke={STROKE_COLOR}
-                            strokeWidth='0.1'
+                            strokeWidth={STROKE_WIDTH}
                         />
                         {/* Polygon001 */}
                         <Polygon
                             ref='001'
                             points='98.263,166.687 110.259,145.525 143.576,203.555 143.576,246.029'
-                            stroke={this.state.hover ? DISABLED_FILL : CHOSEN_FILL}
+                            stroke={this.state.hover ? DISABLED_COLOR : CHOSEN_COLOR}
                             fill={this.state.fill001}
                             strokeWidth='2'
                             delayPressIn={0}
                             onPressIn={this.toggle}
                             onPressOut={this.toggle}
                             onPress={() => {
-                                this.setState({
-                                    fill001: CHOSEN_FILL,
-                                    fill002: DEFAULT_FILL,
-                                    fill003: DEFAULT_FILL,
-                                    fill004: DEFAULT_FILL,
-                                    fill005: DEFAULT_FILL,
-                                    fill006: DEFAULT_FILL,
-                                    fill007: DEFAULT_FILL,
-                                    fill008: DEFAULT_FILL,
-                                    fill009: DEFAULT_FILL,
-                                    fill000: DEFAULT_FILL
-                                })
+                                this.setState(setActivePolys(1))
                             }}
                         />
                         {/* Polygon002 */}
                         <Polygon
                             ref='002'
                             points='50.353,84.595 74.916,84.595 108.758,143.311 96.437,164.365'
-                            stroke={this.state.hover ? DISABLED_FILL : CHOSEN_FILL}
+                            stroke={this.state.hover ? DISABLED_COLOR : CHOSEN_COLOR}
                             fill={this.state.fill002}
                             strokeWidth='2'
                             delayPressIn={0}
                             onPressIn={this.toggle}
                             onPressOut={this.toggle}
                             onPress={() => {
-                                this.setState({
-                                    fill001: CHOSEN_FILL,
-                                    fill002: CHOSEN_FILL,
-                                    fill003: DEFAULT_FILL,
-                                    fill004: DEFAULT_FILL,
-                                    fill005: DEFAULT_FILL,
-                                    fill006: DEFAULT_FILL,
-                                    fill007: DEFAULT_FILL,
-                                    fill008: DEFAULT_FILL,
-                                    fill009: DEFAULT_FILL,
-                                    fill000: DEFAULT_FILL
-                                })
+                                this.setState(setActivePolys(2))
                             }}
                         />
                         {/* Polygon003 */}
                         <Polygon
                             ref='003'
                             points='4.617,4.683 40.044,24.54 73.256,81.979 49.307,81.979'
-                            stroke={this.state.hover ? DISABLED_FILL : CHOSEN_FILL}
+                            stroke={this.state.hover ? DISABLED_COLOR : CHOSEN_COLOR}
                             fill={this.state.fill003}
                             strokeWidth='2'
                             delayPressIn={0}
                             onPressIn={this.toggle}
                             onPressOut={this.toggle}
                             onPress={() => {
-                                this.setState({
-                                    fill001: CHOSEN_FILL,
-                                    fill002: CHOSEN_FILL,
-                                    fill003: CHOSEN_FILL,
-                                    fill004: DEFAULT_FILL,
-                                    fill005: DEFAULT_FILL,
-                                    fill006: DEFAULT_FILL,
-                                    fill007: DEFAULT_FILL,
-                                    fill008: DEFAULT_FILL,
-                                    fill009: DEFAULT_FILL,
-                                    fill000: DEFAULT_FILL
-                                })
+                                this.setState(setActivePolys(3))
                             }}
                         />
                         {/* Polygon004 */}
                         <Polygon
                             ref='004'
                             points='5.87,1.979  95.976,1.979 108.287,23.296 42.077,23.296'
-                            stroke={this.state.hover ? DISABLED_FILL : CHOSEN_FILL}
+                            stroke={this.state.hover ? DISABLED_COLOR : CHOSEN_COLOR}
                             fill={this.state.fill004}
                             strokeWidth='2'
                             delayPressIn={0}
                             onPressIn={this.toggle}
                             onPressOut={this.toggle}
                             onPress={() => {
-                                this.setState({
-                                    fill001: CHOSEN_FILL,
-                                    fill002: CHOSEN_FILL,
-                                    fill003: CHOSEN_FILL,
-                                    fill004: CHOSEN_FILL,
-                                    fill005: DEFAULT_FILL,
-                                    fill006: DEFAULT_FILL,
-                                    fill007: DEFAULT_FILL,
-                                    fill008: DEFAULT_FILL,
-                                    fill009: DEFAULT_FILL,
-                                    fill000: DEFAULT_FILL
-                                })
+                                this.setState(setActivePolys(4))
                             }}
                         />
                         {/* Polygon005 */}
@@ -279,125 +253,70 @@ export default class xyz extends Component {
                             ref='005'
                             points='98.622,1.979  190.289,1.979 177.887,23.296 111.122,23.296'
                             fill={this.state.fill}
-                            stroke={this.state.hover ? DISABLED_FILL : CHOSEN_FILL}
+                            stroke={this.state.hover ? DISABLED_COLOR : CHOSEN_COLOR}
                             fill={this.state.fill005}
                             strokeWidth='2'
                             delayPressIn={0}
                             onPressIn={this.toggle}
                             onPressOut={this.toggle}
                             onPress={() => {
-                                this.setState({
-                                    fill001: CHOSEN_FILL,
-                                    fill002: CHOSEN_FILL,
-                                    fill003: CHOSEN_FILL,
-                                    fill004: CHOSEN_FILL,
-                                    fill005: CHOSEN_FILL,
-                                    fill006: DEFAULT_FILL,
-                                    fill007: DEFAULT_FILL,
-                                    fill008: DEFAULT_FILL,
-                                    fill009: DEFAULT_FILL,
-                                    fill000: DEFAULT_FILL
-                                })
+                                this.setState(setActivePolys(5))
                             }}
                         />
                         {/* Polygon006 */}
                         <Polygon
                             ref='006'
                             points='193.086,1.979  284.748,1.979 246.991,23.296 180.673,23.296'
-                            stroke={this.state.hover ? DISABLED_FILL : CHOSEN_FILL}
+                            stroke={this.state.hover ? DISABLED_COLOR : CHOSEN_COLOR}
                             fill={this.state.fill006}
                             strokeWidth='2'
                             delayPressIn={0}
                             onPressIn={this.toggle}
                             onPressOut={this.toggle}
                             onPress={() => {
-                                this.setState({
-                                    fill001: CHOSEN_FILL,
-                                    fill002: CHOSEN_FILL,
-                                    fill003: CHOSEN_FILL,
-                                    fill004: CHOSEN_FILL,
-                                    fill005: CHOSEN_FILL,
-                                    fill006: CHOSEN_FILL,
-                                    fill007: DEFAULT_FILL,
-                                    fill008: DEFAULT_FILL,
-                                    fill009: DEFAULT_FILL,
-                                    fill000: DEFAULT_FILL
-                                })
+                                this.setState(setActivePolys(6))
                             }}
                         />
                         {/* Polygon007 */}
                         <Polygon
                             ref='007'
                             points='249.29,24.813  285.84,3.952 240.727,82.051 215.901,82.051'
-                            stroke={this.state.hover ? DISABLED_FILL : CHOSEN_FILL}
+                            stroke={this.state.hover ? DISABLED_COLOR : CHOSEN_COLOR}
                             fill={this.state.fill007}
                             strokeWidth='2'
                             delayPressIn={0}
                             onPressIn={this.toggle}
                             onPressOut={this.toggle}
                             onPress={() => {
-                                this.setState({
-                                    fill001: CHOSEN_FILL,
-                                    fill002: CHOSEN_FILL,
-                                    fill003: CHOSEN_FILL,
-                                    fill004: CHOSEN_FILL,
-                                    fill005: CHOSEN_FILL,
-                                    fill006: CHOSEN_FILL,
-                                    fill007: CHOSEN_FILL,
-                                    fill008: DEFAULT_FILL,
-                                    fill009: DEFAULT_FILL,
-                                    fill000: DEFAULT_FILL
-                                })
+                                this.setState(setActivePolys(7))
                             }}
                         />
                         {/* Polygon008 */}
                         <Polygon
                             ref='008'
                             points='214.809,84.522  238.888,84.522 192.683,164.92 180.328,143.657'
-                            stroke={this.state.hover ? DISABLED_FILL : CHOSEN_FILL}
+                            stroke={this.state.hover ? DISABLED_COLOR : CHOSEN_COLOR}
                             fill={this.state.fill008}
                             strokeWidth='2'
                             delayPressIn={0}
                             onPressIn={this.toggle}
                             onPressOut={this.toggle}
                             onPress={() => {
-                                this.setState({
-                                    fill001: CHOSEN_FILL,
-                                    fill002: CHOSEN_FILL,
-                                    fill003: CHOSEN_FILL,
-                                    fill004: CHOSEN_FILL,
-                                    fill005: CHOSEN_FILL,
-                                    fill006: CHOSEN_FILL,
-                                    fill007: CHOSEN_FILL,
-                                    fill008: CHOSEN_FILL,
-                                    fill009: DEFAULT_FILL,
-                                    fill000: DEFAULT_FILL
-                                })
+                                this.setState(setActivePolys(8))
                             }}
                         />
                         {/* Polygon009 */}
                         <Polygon
                             ref='009'
                             points='145.732,203.424  179.063,146.128 191.189,167.219 145.962,245.893'
-                            stroke={this.state.hover ? DISABLED_FILL : CHOSEN_FILL}
+                            stroke={this.state.hover ? DISABLED_COLOR : CHOSEN_COLOR}
                             fill={this.state.fill009}
                             strokeWidth='2'
                             delayPressIn={0}
                             onPressIn={this.toggle}
                             onPressOut={this.toggle}
                             onPress={() => {
-                                this.setState({
-                                    fill001: CHOSEN_FILL,
-                                    fill002: CHOSEN_FILL,
-                                    fill003: CHOSEN_FILL,
-                                    fill004: CHOSEN_FILL,
-                                    fill005: CHOSEN_FILL,
-                                    fill006: CHOSEN_FILL,
-                                    fill007: CHOSEN_FILL,
-                                    fill008: CHOSEN_FILL,
-                                    fill009: CHOSEN_FILL,
-                                    fill000: DEFAULT_FILL
-                                })
+                                this.setState(setActivePolys(9))
                             }}
                         />
                         {/* Polygon010 */}
@@ -512,7 +431,7 @@ export default class xyz extends Component {
                         <Polygon
                             ref='0'
                             points='122.04,69.969  168,69.969  144.988,108.743'
-                            stroke={this.state.hover ? DISABLED_FILL : CHOSEN_FILL}
+                            stroke={this.state.hover ? DISABLED_COLOR : CHOSEN_COLOR}
                             fill={this.state.fill000}
                             strokeWidth='2'
                             delayPressIn={0}
@@ -520,16 +439,16 @@ export default class xyz extends Component {
                             onPressOut={this.toggle}
                             onPress={() => {
                                 this.setState({
-                                    fill001: DEFAULT_FILL,
-                                    fill002: DEFAULT_FILL,
-                                    fill003: DEFAULT_FILL,
-                                    fill004: DEFAULT_FILL,
-                                    fill005: DEFAULT_FILL,
-                                    fill006: DEFAULT_FILL,
-                                    fill007: DEFAULT_FILL,
-                                    fill008: DEFAULT_FILL,
-                                    fill009: DEFAULT_FILL,
-                                    fill000: CHOSEN_FILL
+                                    fill001: DEFAULT_COLOR,
+                                    fill002: DEFAULT_COLOR,
+                                    fill003: DEFAULT_COLOR,
+                                    fill004: DEFAULT_COLOR,
+                                    fill005: DEFAULT_COLOR,
+                                    fill006: DEFAULT_COLOR,
+                                    fill007: DEFAULT_COLOR,
+                                    fill008: DEFAULT_COLOR,
+                                    fill009: DEFAULT_COLOR,
+                                    fill000: CHOSEN_COLOR
                                 })
                             }}
                         />
@@ -549,7 +468,7 @@ const styles = StyleSheet.create({
     },
     header: {
         flex: 1,
-        backgroundColor: CHOSEN_FILL
+        backgroundColor: CHOSEN_COLOR
     },
     textheader: {
         fontFamily: 'Gill Sans'
