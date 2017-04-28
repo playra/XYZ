@@ -18,7 +18,7 @@ import Svg, {
 } from 'react-native-svg'
 
 export default class xyz extends Component {
-  constructor () {
+    constructor () {
         super()
         this.state = {
             hover: true,
@@ -46,339 +46,298 @@ export default class xyz extends Component {
           </ScrollView>
           <View>
             <Svg
-              height='251.14736709749'
-              width='290'
+              height='322.18'
+              width='279.8'
             >
-              {/* Земля */}
+              {/* Shakti внешний треугольник */}
               <Polygon
-                points='0,0 290,0 145,251.14736709749'
+                points='0.68 80.97 139.77 321.69 279.3 80.78 0.68 80.97'
                 fill='none'
                 stroke='gold'
-                strokeWidth='0.1'
+                strokeWidth='0.9'
               />
-              {/* Луна */}
+              {/* Shiva внешний треугольник */}
               <Polygon
-                points='41.156,24.126 145,203.094 247.899,24.126'
+                points='140.19 0.5 279.26 241.92 0.5 241.76 140.19 0.5'
                 fill='none'
                 stroke='gold'
-                strokeWidth='0.1'
+                strokeWidth='0.9'
               />
-              {/* Солнце */}
+              {/* Shakti средний треугольник */}
               <Polygon
-                points='80.45,46.691 145,157.629 208.332,46.691'
+                points='35.5 221.63 243.69 221.47 139.76 41.4 35.5 221.63'
                 fill='none'
                 stroke='gold'
-                strokeWidth='0.1'
+                strokeWidth='0.9'
               />
-              {/* 999 */}
+              {/* Shiva средний треугольник */}
               <Polygon
-                points='120.037,69.052 169.485,69.052 145,112.254'
+                points='35.8 100.87 139.82 281 244.13 101.06 35.8 100.87'
                 fill='none'
                 stroke='gold'
-                strokeWidth='0.1'
+                strokeWidth='0.9'
               />
-              {/* Polus1 */}
-              <Line
-                x1='145'
-                y1='112.254'
-                x2='145'
-                y2='251.14736709749'
-                stroke='gold'
-                strokeWidth='0.1'
-                />
-              {/* Polus2 */}
-              <Line
-                x1='96,269'
-                y1='167,184'
-                x2='136,491'
-                y2='97,66'
-                stroke='gold'
-                strokeWidth='0.1'
-                />
-              {/* Polus3 */}
-              <Line
-                x1='47,78'
-                y1='83,145'
-                x2='128,077'
-                y2='83,145'
-                stroke='gold'
-                strokeWidth='0.1'
-                />
-              {/* Polus4 */}
-              <Line
-                x1='0'
-                y1='0'
-                x2='120.037'
-                y2='69.052'
-                stroke='gold'
-                strokeWidth='0.1'
-                />
-              {/* Polus5 */}
-              <Line
-                x1='96,66'
-                y1='0'
-                x2='136,425'
-                y2='69,048'
-                stroke='gold'
-                strokeWidth='0.1'
-                />
-              {/* Polus6 */}
-              <Line
-                x1='192,745'
-                y1='0'
-                x2='153,103'
-                y2='69,048'
-                stroke='gold'
-                strokeWidth='0.1'
-                />
-              {/* Polus7 */}
-              <Line
-                x1='290'
-                y1='0'
-                x2='169.485'
-                y2='69.052'
-                stroke='gold'
-                strokeWidth='0.1'
-                />
-              {/* Polus8 */}
-              <Line
-                x1='241,601'
-                y1='83,145'
-                x2='161,464'
-                y2='83,145'
-                stroke='gold'
-                strokeWidth='0.1'
-                />
-              {/* Polus9 */}
-              <Line
-                x1='153,231'
-                y1='97,544'
-                x2='193,9'
-                y2='167,184'
-                stroke='gold'
-                strokeWidth='0.1'
-                />
-              {/* Polygon001 */}
+              {/* Shakti малый треуголник */}
               <Polygon
-                ref='001'
-                points='98.263,166.687 110.259,145.525 143.576,203.555 143.576,246.029'
+                points='139.86 80.84 209.31 200.95 70.5 201.22 139.86 80.84'
+                fill='none'
+                stroke='gold'
+                strokeWidth='0.9'
+              />
+             {/* Shakti внутрений треугольник */}
+              <Polygon
+                points='105.39 140.6 139.9 201.24 174.32 140.44 105.39 140.6'
+                fill='none'
+                stroke='gold'
+                strokeWidth='0.9'
+              />
+             {/* Shiva внутрений треугольник */}
+              <Polygon
+                points='139.93 121.47 174.41 180.91 105.41 181.09 139.93 121.47'
+                fill='none'
+                stroke='gold'
+                strokeWidth='0.9'
+              />
+               {/* Shakti 999 */}
+              <Polygon
+                points='0.68 80.97 139.77 321.69 279.3 80.78 0.68 80.97'
+                fill='none'
+                stroke='gold'
+                strokeWidth='0.9'
+              />
+               {/* 999 */}
+              <Polygon
+                ref='000'
+                points='131.86 155.79 140.1 170.27 148.44 155.8 131.86 155.79'
                 stroke={this.state.hover ? 'rgba(10, 10, 10, 0.5)' : 'gold'}
                 fill={this.state.fill001}
-                strokeWidth='2'
+                strokeWidth='0'
                 delayPressIn={0}
                 onPressIn={this.toggle}
                 onPressOut={this.toggle}
                 onPress={() => {this.setState({fill001: 'gold', fill002: 'black', fill003: 'black', fill004: 'black', fill005: 'black', fill006: 'black', fill007: 'black', fill008: 'black', fill009: 'black', fill000: 'black'})}}
               />
-              {/* Polygon002 */}
+              {/* Polygon001 Shakti */}
+              <Polygon
+                ref='001'
+                points='139.02 281.67 105.28 223.39 95.02 242.33 139.23 319.21 139.02 281.67'
+                stroke={this.state.hover ? 'rgba(10, 10, 10, 0.5)' : 'gold'}
+                fill={this.state.fill001}
+                strokeWidth='0'
+                delayPressIn={0}
+                onPressIn={this.toggle}
+                onPressOut={this.toggle}
+                onPress={() => {this.setState({fill001: 'gold', fill002: 'black', fill003: 'black', fill004: 'black', fill005: 'black', fill006: 'black', fill007: 'black', fill008: 'black', fill009: 'black', fill000: 'black'})}}
+              />
+              {/* Polygon002 Shakti */}
               <Polygon
                 ref='002'
-                points='50.353,84.595 74.916,84.595 108.758,143.311 96.437,164.365'
+                points='93.55 241.55 105.28 221.38 70.64 161.1 47.33 161.51 93.55 241.36'
                 stroke={this.state.hover ? 'rgba(10, 10, 10, 0.5)' : 'gold'}
                 fill={this.state.fill002}
-                strokeWidth='2'
+                strokeWidth='0'
                 delayPressIn={0}
                 onPressIn={this.toggle}
                 onPressOut={this.toggle}
                 onPress={() => {this.setState({fill001: 'gold', fill002: 'gold', fill003: 'black', fill004: 'black', fill005: 'black', fill006: 'black', fill007: 'black', fill008: 'black', fill009: 'black', fill000: 'black'})}}
               />
-              {/* Polygon003 */}
+              {/* Polygon003 Shakti */}
               <Polygon
                 ref='003'
-                points='4.617,4.683 40.044,24.54 73.256,81.979 49.307,81.979'
+                points='70.64 161.1 47.33 161.51 0.85 81.03 35.8 100.87 70.64 161.1'
                 stroke={this.state.hover ? 'rgba(10, 10, 10, 0.5)' : 'gold'}
                 fill={this.state.fill003}
-                strokeWidth='2'
+                strokeWidth='0'
                 delayPressIn={0}
                 onPressIn={this.toggle}
                 onPressOut={this.toggle}
                 onPress={() => {this.setState({fill001: 'gold', fill002: 'gold', fill003: 'gold', fill004: 'black', fill005: 'black', fill006: 'black', fill007: 'black', fill008: 'black', fill009: 'black', fill000: 'black'})}}
               />
-              {/* Polygon004 */}
+              {/* Polygon004 Shakti */}
               <Polygon
                 ref='004'
-                points='5.87,1.979  95.976,1.979 108.287,23.296 42.077,23.296'
+                points='0.85 81.03 93.57 80.93 105.26 100.87 35.8 100.87 0.85 81.03'
                 stroke={this.state.hover ? 'rgba(10, 10, 10, 0.5)' : 'gold'}
                 fill={this.state.fill004}
-                strokeWidth='2'
+                strokeWidth='0'
                 delayPressIn={0}
                 onPressIn={this.toggle}
                 onPressOut={this.toggle}
                 onPress={() => {this.setState({fill001: 'gold', fill002: 'gold', fill003: 'gold', fill004: 'gold', fill005: 'black', fill006: 'black', fill007: 'black', fill008: 'black', fill009: 'black', fill000: 'black'})}}
               />
-              {/* Polygon005 */}
+              {/* Polygon005 Shakti */}
               <Polygon
                 ref='005'
-                points='98.622,1.979  190.289,1.979 177.887,23.296 111.122,23.296'
+                points='93.57 80.93 105.26 100.87 174.53 100.87 186.73 80.84 93.57 80.93'
                 fill={this.state.fill}
                 stroke={this.state.hover ? 'rgba(10, 10, 10, 0.5)' : 'gold'}
                 fill={this.state.fill005}
-                strokeWidth='2'
+                strokeWidth='0'
                 delayPressIn={0}
                 onPressIn={this.toggle}
                 onPressOut={this.toggle}
                 onPress={() => {this.setState({fill001: 'gold', fill002: 'gold', fill003: 'gold', fill004: 'gold', fill005: 'gold', fill006: 'black', fill007: 'black', fill008: 'black', fill009: 'black', fill000: 'black'})}}
               />
-              {/* Polygon006 */}
+              {/* Polygon006 Shakti */}
               <Polygon
                 ref='006'
-                points='193.086,1.979  284.748,1.979 246.991,23.296 180.673,23.296'
+                points='174.53 100.87 186.73 80.84 278.56 80.84 244 101.06 174.53 100.87'
                 stroke={this.state.hover ? 'rgba(10, 10, 10, 0.5)' : 'gold'}
                 fill={this.state.fill006}
-                strokeWidth='2'
+                strokeWidth='0'
                 delayPressIn={0}
                 onPressIn={this.toggle}
                 onPressOut={this.toggle}
                 onPress={() => {this.setState({fill001: 'gold', fill002: 'gold', fill003: 'gold', fill004: 'gold', fill005: 'gold', fill006: 'gold', fill007: 'black', fill008: 'black', fill009: 'black', fill000: 'black'})}}
               />
-              {/* Polygon007 */}
+              {/* Polygon007 Shakti */}
               <Polygon
                 ref='007'
-                points='249.29,24.813  285.84,3.952 240.727,82.051 215.901,82.051'
+                points='279.51 80.42 244.46 100.49 209.5 160.87 232.82 160.87 279.51 80.42'
                 stroke={this.state.hover ? 'rgba(10, 10, 10, 0.5)' : 'gold'}
                 fill={this.state.fill007}
-                strokeWidth='2'
+                strokeWidth='0'
                 delayPressIn={0}
                 onPressIn={this.toggle}
                 onPressOut={this.toggle}
                 onPress={() => {this.setState({fill001: 'gold', fill002: 'gold', fill003: 'gold', fill004: 'gold', fill005: 'gold', fill006: 'gold', fill007: 'gold', fill008: 'black', fill009: 'black', fill000: 'black'})}}
               />
-              {/* Polygon008 */}
+              {/* Polygon008 Shakti */}
               <Polygon
                 ref='008'
-                points='214.809,84.522  238.888,84.522 192.683,164.92 180.328,143.657'
+                points='232.82 160.87 209.5 160.87 174.53 221.35 186.12 241.55 232.82 160.87'
                 stroke={this.state.hover ? 'rgba(10, 10, 10, 0.5)' : 'gold'}
                 fill={this.state.fill008}
-                strokeWidth='2'
+                strokeWidth='0'
                 delayPressIn={0}
                 onPressIn={this.toggle}
                 onPressOut={this.toggle}
                 onPress={() => {this.setState({fill001: 'gold', fill002: 'gold', fill003: 'gold', fill004: 'gold', fill005: 'gold', fill006: 'gold', fill007: 'gold', fill008: 'gold', fill009: 'black', fill000: 'black'})}}
               />
-              {/* Polygon009 */}
+              {/* Polygon009 Shakti */}
               <Polygon
                 ref='009'
-                points='145.732,203.424  179.063,146.128 191.189,167.219 145.962,245.893'
+                points='139.77 321.62 186.12 241.55 174.53 221.35 139.77 281.09 139.77 321.62'
                 stroke={this.state.hover ? 'rgba(10, 10, 10, 0.5)' : 'gold'}
                 fill={this.state.fill009}
-                strokeWidth='2'
+                strokeWidth='0'
                 delayPressIn={0}
                 onPressIn={this.toggle}
                 onPressOut={this.toggle}
                 onPress={() => {this.setState({fill001: 'gold', fill002: 'gold', fill003: 'gold', fill004: 'gold', fill005: 'gold', fill006: 'gold', fill007: 'gold', fill008: 'gold', fill009: 'gold', fill000: 'black'})}}
               />
-              {/* Polygon010 */}
+              {/* Polygon010 Shakti */}
               <Polygon
                 ref='010'
-                points='111.62,143.495  123.293,123.115 143.576,158.229 143.576,198.797'
+                points='139.27 278 106.89 222.09 116.29 202.52 138.87 241.84 139.27 278'
                 fill={this.state.fill}
               />
-              {/* Polygon020 */}
+              {/* Polygon020  Shiakti */}
               <Polygon
                 ref='020'
-                points='77.632,84.595  101.129,84.595 121.864,120.534 110.162,140.895'
+                points='105.28 221.38 117 201.23 93.55 160.71 70.64 161.1 105.28 221.38'
                 fill={this.state.fill}
               />
-              {/* Polygon030 */}
+              {/* Polygon030 Shakti */}
               <Polygon
-                ref='020'
-                points='44.149,26.805  79.411,47.172 100,81.979 76,81.979'
+                ref='030'
+                points='93.55 160.71 70.64 161.1 35.8 100.87 70.7 120.95 93.55 160.71'
                 fill={this.state.fill}
               />
-              {/* Polygon040 */}
+              {/* Polygon040  Shakti */}
               <Polygon
                 ref='040'
-                points='45.705,25.563  109.707,25.563 121.386,45.705 81.554,45.705'
+                points='35.8 100.87 70.7 120.95 116.99 121 105.26 100.87 35.8 100.87'
                 fill={this.state.fill}
               />
-              {/* Polygon050 */}
+              {/* Polygon050  Shakti */}
               <Polygon
                 ref='050'
-                points='112.472,25.563  176.564,25.563 165,45.705 124.038,45.705'
+                points='105.26 100.87 116.99 121 162.8 120.95 174.53 100.87 105.26 100.87'
                 fill={this.state.fill}
               />
-              {/* Polygon060 */}
+              {/* Polygon060 Shakti */}
               <Polygon
                 ref='060'
-                points='179.216,25.563  242.969,25.563 208.271,45.705 167.706,45.705'
+                points='162.8 120.95 209.03 121.09 244 101.06 174.53 100.87 162.8 120.95'
                 fill={this.state.fill}
               />
-              {/* Polygon070 */}
+              {/* Polygon070 Shakti */}
               <Polygon
                 ref='070'
-                points='209.528,47.603  245.147,27.129 213.436,82.113 189.542,82.112'
+                points='244 101.06 209.03 121.09 186.12 160.87 209.5 160.87 244 101.06'
                 fill={this.state.fill}
               />
-              {/* Polygon080 */}
+              {/* Polygon080 Shakti */}
               <Polygon
                 ref='080'
-                points='188.232,84.522  211.886,84.522 179.135,141.511 167.276,120.744'
+                points='209.5 160.87 186.12 160.87 163.1 201.21 174.53 221.35 209.5 160.87'
                 fill={this.state.fill}
               />
-              {/* Polygon090 */}
+              {/* Polygon090  Shakti */}
               <Polygon
                 ref='090'
-                points='145.732,158.229  165.833,123.316 177.691,143.896 145.732,198.797'
+                points='163.1 201.21 174.53 221.35 139.77 280.9 139.77 241.36 163.1 201.2'
                 fill={this.state.fill}
               />
-              {/* Polygon100 */}
+              {/* Polygon100  Shakti */}
               <Polygon
                 ref='100'
-                points='124.738,120.556  136.47,99.663 143.56,112.211 143.686,152.93'
+                points='140.1 200.89 139.77 241.36 117 201.23 128.69 181.06 140.1 200.89 139.77 241.36'
                 fill={this.state.fill}
               />
-              {/* Polygon200 */}
+              {/* Polygon200 Shikti */}
               <Polygon
                 ref='200'
-                points='103.845,84.595  127.059,84.595 135.027,97.655 123.232,117.983'
+                points='117 201.23 128.69 181.06 117.06 160.87 93.55 160.71 117 200.78'
                 fill={this.state.fill}
               />
-              {/* Polygon300 */}
+              {/* Polygon300 Shakti */}
               <Polygon
                 ref='300'
-                points='83.454,49.453  118.526,69.515  125.992,81.979 102.276,81.979'
+                points='117.06 160.87 93.55 160.71 70.7 120.95 105.62 140.99 117.06 160.87'
                 fill={this.state.fill}
               />
-              {/* Polygon400 */}
+              {/* Polygon400 Shakti */}
               <Polygon
                 ref='400'
-                points='86,47.969  122.50,47.969  134.212,67.916 120.22,67.916'
+                points='70.7 120.95 105.62 140.99 128.69 140.85 116.99 121 70.7 120.95'
                 fill={this.state.fill}
               />
-              {/* Polygon500 */}
+              {/* Polygon500 Shakti */}
               <Polygon
                 ref='500'
-                points='125,47.969  164,47.969  152.281,67.916 137.035,67.916'
+                points='116.99 121 128.69 140.85 151.22 140.85 162.8 120.95 116.99 121'
                 fill={this.state.fill}
               />
-              {/* Polygon600 */}
+              {/* Polygon600 Shakti */}
               <Polygon
                 ref='600'
-                points='166.461,47.969  203.729,47.969  169.221,67.916 154.854,67.916'
+                points='151.22 140.85 162.8 120.95 209.03 121.09 174.18 141.05 151.22 140.85'
                 fill={this.state.fill}
               />
-              {/* Polygon700 */}
+              {/* Polygon700 Shakti */}
               <Polygon
                 ref='700'
-                points='170.79,69.798  205.486,49.783  186.914,82.112 163.512,82.112'
+                points='209.03 121.09 174.18 141.05 162.8 160.87 186.12 160.87 209.03 121.09'
                 fill={this.state.fill}
               />
-              {/* Polygon800 */}
+              {/* Polygon800 Shakti*/}
               <Polygon
                 ref='800'
-                points='162.257,84.522  185.346,84.522  166.084,118.172 154.414,97.781'
+                points='186.12 160.87 163.1 201.21 151.22 181.01 162.8 160.87 186.12 160.87'
                 fill={this.state.fill}
               />
-              {/* Polygon900 */}
+              {/* Polygon900 Shakti */}
               <Polygon
                 ref='900'
-                points='145.732,112.211  153.097,100.353  164.767,120.556 145.732,152.993'
+                points='163.1 201.21 151.22 181.01 140.1 200.89 139.77 241.36 163.1 201.21'
                 fill={this.state.fill}
               />
-              {/* Polygon0 */}
+              {/* Polygon0 Shakti */}
               <Polygon
                 ref='0'
-                points='122.04,69.969  168,69.969  144.988,108.743'
+                points='131.76 155.79 134.5 160.54 131.37 165.87 137.54 165.82 140.15 170.35 142.75 165.78 148.54 165.74 145.64 160.7 148.44 155.8 142.81 155.8 140.07 151.04 137.28 155.79 131.76 155.79'
                 stroke={this.state.hover ? 'rgba(10, 10, 10, 0.5)' : 'gold'}
                 fill={this.state.fill000}
                 strokeWidth='2'
